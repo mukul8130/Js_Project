@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/c9851da760.js" crossorigin="anonymous"></script>
+    <style>
+        .login_form form{
+            min-width: 300px;
+            width: 30%;
+        }
+
+        .secound-form{
+            min-width: 300px;
+            width: 30%;
+        }
+        .hide-div{
+            transform: translateY(-200%);
+            transition: all 1s ease-in-out;
+        }
+        
+        .show-div{
+            transform: translateY(0%);
+            transition: all 1s ease-in-out;
+
+        }
+
+        @media screen and (max-width:450px) {
+        .login_form form{
+            min-width:auto;
+            width:90%;
+            }   
+        }
+    </style>
+
+</head>
+<body>
+    <header class="bg-red-500">
+        <nav class="bg-gray-300 flex justify-center p-5">
+            <ul class="flex gap-7 justify-center items-center">
+                <li><a href="#">Member</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <span style="background-color:black; color: white; padding:5px 10px; border-radius:100px; text-align: right;" onclick="y1()"><i class="fa-solid fa-plus cursor-pointer"></i></span>
+            </ul>
+        </nav>
+    </header>
+
+    
+        <div class="login_form flex justify-center items-center " style="height: 80vh; background-color: whitesmoke;">
+            <form action="" class="flex flex-col gap-2 border-2 p-4 bg-gray-300 rounded-lg relative">
+                <!-- <h1 class="text-center text-3xl">Login</h1> -->
+                <label for="name" class="text-xl">Enter Name</label>
+                <input type="text" placeholder="Enter Name" class="border-2 p-1 rounded-md" id="name">
+
+                <label for="l" class="text-xl">Last Name</label>
+                <input type="text" placeholder="Last Name" class="border-2 p-1 rounded-md" id="l">
+
+                <label for="age" class="text-xl">Age</label>
+                <input type="number" placeholder="Enter Age" class="border-2 p-1 rounded-md" id="age">
+                
+                <div class="box flex justify-center cursor-pointer">
+                <span onclick="x1()" class="bg-white p-1 mt-2 rounded-md hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-100 w-20 text-center"><i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <!-- ####################### -->
+
+                <div class="secound-div w-full bg-gray-300 rounded-lg h-full absolute top-0 left-0 flex justify-center items-center hide-div">
+                <div class="secound-form  flex flex-col gap-4 justify-center items-center text-white p-5 w-full py-14">
+                
+                <div class="cross-icon absolute top-5 right-10 text-black text-xl cursor-pointer" onclick="x2()">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+                <input type="email" placeholder="Email Address" class="border-2 p-1 rounded-md w-11/12">
+
+                <input type="text" placeholder="City" class="border-2 p-1 rounded-md w-11/12" >
+
+                <input type="number" placeholder="Weight" class="border-2 p-1 rounded-md w-11/12" id="age">
+                
+                <div class="box flex justify-center cursor-pointer w-full">
+                <button class="bg-white text-black p-1 rounded-md hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-100  text-center w-11/12">Submit</button>
+                </div>
+
+                </div>
+            </div>
+
+            </form>
+        </div>
+
+
+        <!-- ########################################## -->
+        <div class="login_form xyz hide-div flex justify-center items-center absolute top-16 w-full bg-gray-300 border-2" style="height: 80vh;">
+            <form action="" class="flex flex-col gap-2 border-2 p-4 pt-12 rounded-lg relative">
+                
+                <i class="fa-solid fa-xmark absolute right-5 top-4 cursor-pointer" onclick="y2()"></i>
+                
+                <input type="text" placeholder="Enter Name" class="border-2 p-1 rounded-md" id="name">
+                <input type="text" placeholder="Last Name" class="border-2 p-1 rounded-md" id="l">
+                <input type="number" placeholder="Enter Age" class="border-2 p-1 rounded-md" id="age">
+                <input type="email" placeholder="Email Address" class="border-2 p-1 rounded-md ">
+                <input type="text" placeholder="City" class="border-2 p-1 rounded-md " >
+                <input type="number" placeholder="Weight" class="border-2 p-1 rounded-md" id="age">
+
+                <div class="box flex justify-center cursor-pointer w-full">
+                <button class="bg-white text-black p-1 rounded-md hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-100  text-center ">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- ########################################## -->
+    
+        <script>
+            function x1(){
+                var t=document.getElementsByClassName('secound-div')[0]
+                if(t.classList.contains('hide-div')){
+                    t.classList.remove('hide-div')
+                    t.classList.add('show-div')
+                }
+            }
+
+            function x2(){
+                var t=document.getElementsByClassName('secound-div')[0]
+                if(t.classList.contains('show-div')){
+                    t.classList.remove('show-div')
+                    t.classList.add('hide-div')
+                }
+            }
+
+            function y1(){
+                var t=document.getElementsByClassName('xyz')[0]
+                if(t.classList.contains('hide-div')){
+                    t.classList.remove('hide-div')
+                    t.classList.add('show-div')
+                }
+            }
+
+            function y2(){
+                var t=document.getElementsByClassName('xyz')[0]
+                if(t.classList.contains('show-div')){
+                    t.classList.remove('show-div')
+                    t.classList.add('hide-div')
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen 1</title>
+    <script src="https://kit.fontawesome.com/c9851da760.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #info-form{
+             position: absolute;
+             top: 20%;
+             left: 40%;
+             transition: all 1s ease-in-out;
+        }
+        .hide-form{
+            position: absolute;
+            transform: translateY(-200%);
+            transition: all 1s ease-in-out;
+
+        }
+        .show-form{
+            transform: translateY(0%);
+            transition: all 1s ease-in-out;
+
+        }
+
+        @media screen and (max-width:700px) {
+            .block4{
+                top: 5% !important;
+                left:25% !important;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            .block4{
+                top: 10% !important;
+                left: 0% !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: whitesmoke;">
+
+    <form class="container1 flex flex-col pt-10 pb-20 absolute " onsubmit="return data()">
+        <h1 class="text-center text-3xl font-bold mb-5">Trainer</h1>
+        <div class="child-con flex justify-center gap-7 sm:flex-nowrap flex-wrap">
+        <div class="con sm:w-1/4 w-11/12">
+            <img src="/img/card1-img.webp" alt="" class="w-full">
+            <h3 class="font-bold text-xl my-2">Ashok Trainer</h3>
+            <!-- <form action="" class="flex flex-col gap-2"> -->
+                <input type="text" placeholder="Enter Name" class="p-1 w-full" name="Name" id="n1">
+                <input type="text" name="LastName" id="n2" placeholder="Enter Last Name" class="p-1 w-full my-2">
+                <input type="number" placeholder="Enter Age" class="p-1 w-full" name="Age" id="n3">
+                <!-- <button type="submit" class="border-2 p-1 bg-slate-100">Submit</button> -->
+            <!-- </form> -->
+        </div>
+        <div class="con sm:w-1/4 w-11/12">
+            <img src="/img/card1-img.webp" alt="" class="w-full">
+            <h3 class="font-bold text-xl my-2">Ashok Trainer</h3>
+            <!-- <form action="" class="flex flex-col gap-2"> -->
+                <input type="text" placeholder="Phone Number" class="p-1 w-full" name="Phone_Number" id="n4">
+                <input type="text" placeholder="Country" class="p-1 w-full my-2" name="Country" id="n5" >
+                <input type="text" placeholder="City" class="p-1 w-full" name="City" id="n6">
+            <!-- </form> -->
+        </div>
+        <div class="con sm:w-1/4 w-11/12">
+            <img src="/img/card1-img.webp" alt="" class="w-full">
+            <h3 class="font-bold text-xl my-2">Ashok Trainer</h3>
+            <!-- <form action="" class="flex flex-col gap-2"> -->
+                <input type="email" placeholder="Email" class="p-1 w-full" name="Email" id="n7">
+                <input type="text"  placeholder="Degree" class="p-1 w-full my-2" name="Degree" id="n8">
+                <input type="date" placeholder="" class="p-1 w-full" name="Date" id="n9">
+            <!-- </form>  -->
+            <div class="btn mt-3" style="display: flex; justify-content: end;" onclick="f1()">
+            <span style="background-color:black; color: white; padding:5px 10px; border-radius:100px; text-align: right;" onclick="f1()"><i class="fa-solid fa-plus cursor-pointer"></i></span>
+            </div>
+            
+            <div class="client-data" id="client">
+                
+            </div>
+
+        </div>
+        </div>
+    
+
+    <!-- ########### Form ########### -->
+    <div class=" hide-form form-box w-full h-full absolute top-0 " style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5));" id="form" >
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80 block4" id="info-form" >
+        <div class="cross absolute right-5 top-2 cursor-pointer" onclick="f2()">
+            <i class="fa-solid fa-xmark "></i>
+        </div>
+        <!-- Trainer Name Field -->
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Trainer Name</label>
+            <input type="text" id="n10" name="Name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter name" >
+        </div>
+        
+        <!-- Experience -->
+        <div class="mb-4">
+            <label for="age" class="block text-gray-700 font-medium mb-2">Experience</label>
+            <input type="number" id="n11" name="Experience" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Experience">
+        </div>
+        
+        <!-- Belong City -->
+        <div class="mb-4">
+            <label for="city" class="block text-gray-700 font-medium mb-2">Belong City</label>
+            <input type="text" id="n12" name="City" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter city">
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-blue-500 text-white font-medium p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+    </div>
+    </div>
+</form>
+
+    <script>
+        function f1(){
+            var x =document.getElementById('form')
+            if(x.classList.contains('hide-form')){
+                x.classList.remove('hide-form')
+                x.classList.add('show-form')
+            }
+        }
+
+        function f2(){
+            var x =document.getElementById('form')
+            if(x.classList.contains('show-form')){
+                x.classList.remove('show-form')
+                x.classList.add('hide-form')
+                
+            }
+        }
+
+        function data(){
+            // var a1=document.getElementById('name').value
+            // var a2=document.getElementById('age').value
+            // var a3=document.getElementById('city').value
+            var a1=document.getElementById('n1').value
+            var a2=document.getElementById('n2').value
+            var a3=document.getElementById('n3').value
+            var a4=document.getElementById('n4').value
+            var a5=document.getElementById('n5').value
+            var a6=document.getElementById('n6').value
+            var a7=document.getElementById('n7').value
+            var a8=document.getElementById('n8').value
+            var a9=document.getElementById('n9').value
+            var a10=document.getElementById('n10').value
+            var a11=document.getElementById('n11').value
+            var a12=document.getElementById('n12').value
+
+            // console.log(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12)
+
+            // return false
+            
+            if(!localStorage.getItem('drive')){
+                localStorage.setItem("drive",JSON.stringify([{
+                    "Name":a1,
+                    "Last Name":a2,
+                    "Age":a3,
+                    "Phone Number":a4,
+                    "Country":a5,
+                    "City":a6,
+                    "Email":a7,
+                    "Degree":a8,
+                    "DOB":a9,
+                    "Traner_name":a10,
+                    "Experience":a11,
+                    "City":a12
+                }]))
+            }
+            else{
+                drive = JSON.parse(localStorage.getItem('drive'))
+                drive.push({
+                    "Name":a1,
+                    "Last Name":a2,
+                    "Age":a3,
+                    "Phone Number":a4,
+                    "Country":a5,
+                    "City":a6,
+                    "Email":a7,
+                    "Degree":a8,
+                    "DOB":a9,
+                    "Traner_name":a10,
+                    "Experience":a11,
+                    "City":a12
+                })
+                localStorage.setItem("drive",JSON.stringify(drive))
+           }
+
+        }
+
+        // x=JSON.parse(localStorage.getItem("drive"))
+        // var client =document.getElementById("client")
+
+        // for (i of x){
+        //         client.innerHTML+=`
+        //             <h4>Name: ${i.name} </h4>
+        //             <h4>age:  ${i.age} </h4>
+        //             <h4>city: ${i.city} </h4>
+        //             <br>
+        //         `
+        //     }
+
+       
+        
+
+
+        
+    </script>
+</body>
+</html>
